@@ -1,0 +1,318 @@
+/*
+Fonts used
+
+font-family: 'Karla', sans-serif;
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+font-family: 'Rubik', sans-serif;
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+*/
+
+:root {
+  --button-color: #3c6973;
+  --active-color: #bf5050;
+  --text-color: #595958;
+  --grid-color: #f2f2f2;
+  --white: #ffffff;
+  --black: #000000;
+  --primary-font-family:'Karla', sans-serif;
+  --secondary-font-family:'Rubik', sans-serif;
+  --text-font-weight: 400;
+  --heading-font-weight: 500;
+  --active-font-weight: 700;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--white);
+  font-family: var(--primary-font-family);
+  font-weight: var(--text-font-weight);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  color: var(--text-color);
+  font-family: var(--secondary-font-family);
+  font-weight: var(--heading-font-weight);
+  font-size: 30px;
+  margin: 20px;
+  text-align: center;
+}
+
+h2 {
+  color: var(--text-color);
+  font-family: var(--secondary-font-family);
+  font-weight: var(--heading-font-weight);
+  font-size: 25px;
+  text-align: center;
+}
+
+p {
+  color: var(--text-color);
+  font-family: var(--primary-font-family);
+  font-weight: var(--text-font-weight);
+  font-size: 16px;
+  margin: 20px;
+}
+
+a {
+  color: var(--button-color);
+  font-family: var(--primary-font-family);
+  font-size: 16px;
+  margin: 20px;
+  transition: 0.5s font-weight;
+}
+
+a:visited {
+  color: var(--button-color);
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  font-weight: var(--active-font-weight);
+}
+
+a:active {
+  color: var(--active-color);
+  font-weight: var(--active-font-weight);
+}
+
+button {
+  border: none;
+  background-color: var(--button-color);
+  color: var(--white);
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 24px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition: 0.5s opacity;
+}
+
+button:hover, button:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.button__secondary {
+  background-color: var(--button-color);
+  color: var(--white);
+  font-family: var(--secondary-font-family);
+  padding: 10px;
+  border-radius: 24px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition: 0.5s opacity;
+}
+
+.button__secondary:hover, button__secondary:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.profile {
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__portrait {
+  float: left;
+  width: 250px;
+  height: auto;
+  margin-right: 40px;
+  border-radius: 50%
+}
+
+.span {
+  color: var(--active-color);
+  font-weight: 700;
+}
+
+.page-header {
+  display: flex;
+  max-width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid var(--text-color);
+}
+
+.page-header__item {
+  flex: 0 1 200px;
+  max-height: 30px;
+}
+
+.page-header__item:last-child {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.navigation-list {
+  list-style-type: none;
+}
+
+.navigation-list li {
+  display: inline-block;
+  margin-left: 15px;
+  font-family: var(--secondary-font-family);
+}
+
+.page-body {
+  margin: 0 10px;
+  padding: 20px;
+  min-height: 100%;
+  text-align: center;
+}
+
+.about-text {
+  margin: 0 100px;
+  text-align: justify;
+}
+
+/* Grid items */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.grid__item {
+  background-color: var(--grid-color);
+  padding: 10px;
+  margin: 20px;
+}
+
+button,
+.button, button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  display: inline-block;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* styles the button */
+  background-color: var(--button-color);
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 24px;
+  /* width of the border, type, color */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition: 0.5s opacity;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* start grid fallback */
+.grid__item {
+ display: inline-block;
+ width: 33%;
+}
+/* end grid fallback */
+
+@supports (display: grid) {
+ .grid {
+   display: grid;
+   /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-gap: 15px;
+   margin: 20px;
+
+ }
+ .grid__item {
+   background-color: var(--grid-color);
+   width: auto;
+   min-height: auto;
+   margin: 0;
+ }
+}
+
+.page-footer {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid var(--text-color);
+}
+
+/* The animation code */
+@keyframes color-change {
+  0% {
+   fill: #edc655;
+ }
+ 50% {
+   fill: #fcffad;
+ }
+ 100% {
+   fill: #f76414;
+ }
+}
+/* The element to apply the animation to: Long version */
+.sun {
+  animation-duration: 4s;
+  animation-name: color-change;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@@keyframes cloud-move {
+  from {
+    transform: translate(0, 50px);
+  }
+  to {
+    transform: translate(200px, 50px);
+  }
+}
+/* Short version */
+.cloud-front {
+  animation: 30s cloud-move infinite alternate linear;
+}
+
+@keyframes cloud-move-reverse {
+  from {
+    transform: translate(446px, 48px);
+  }
+  to {
+    transform: translate(100px, 48px);
+  }
+}
+
+.cloud-back {
+  animation: 34s cloud-move-reverse infinite alternate linear;
+}
+
+/* Media Queries */
+@media all and (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media all and (min-width: 500px) and (max-width: 750px){
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
