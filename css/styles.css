@@ -17,14 +17,14 @@ font-family: 'Rubik', sans-serif;
   --grid-color: #f2f2f2;
   --white: #ffffff;
   --black: #000000;
-  --primary-font-family:'Karla', sans-serif;
-  --secondary-font-family:'Rubik', sans-serif;
+  --primary-font-family:'Karla'; sans-serif;
+  --secondary-font-family:'Rubik'; sans-serif;
   --text-font-weight: 400;
   --heading-font-weight: 500;
   --active-font-weight: 700;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -73,7 +73,8 @@ a:visited {
   color: var(--button-color);
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   text-decoration: none;
   font-weight: var(--active-font-weight);
 }
@@ -95,7 +96,8 @@ button {
   transition: 0.5s opacity;
 }
 
-button:hover, button:focus {
+button:hover,
+button:focus {
   cursor: pointer;
   opacity: 0.8;
 }
@@ -110,7 +112,8 @@ button:hover, button:focus {
   transition: 0.5s opacity;
 }
 
-.button__secondary:hover, button__secondary:focus {
+.button__secondary:hover,
+button__secondary:focus {
   cursor: pointer;
   opacity: 0.8;
 }
@@ -127,7 +130,7 @@ button:hover, button:focus {
   width: 250px;
   height: auto;
   margin-right: 40px;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 .span {
@@ -188,18 +191,22 @@ button:hover, button:focus {
 }
 
 button,
-.button, button {
+.button,
+button {
   /* overwrites browser defaults and resets the border */
   border: none;
   display: inline-block;
+
   /* takes the font from the outer container */
   font-family: inherit;
+
   /* styles the button */
   background-color: var(--button-color);
   color: var(--white);
   text-decoration: none;
   padding: 10px;
   border-radius: 24px;
+
   /* width of the border, type, color */
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
   transition: 0.5s opacity;
@@ -215,26 +222,28 @@ button:focus,
 
 /* start grid fallback */
 .grid__item {
- display: inline-block;
- width: 33%;
+  display: inline-block;
+  width: 33%;
 }
+
 /* end grid fallback */
 
 @supports (display: grid) {
- .grid {
-   display: grid;
-   /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
-   grid-template-columns: 1fr 1fr 1fr;
-   grid-gap: 15px;
-   margin: 20px;
+  .grid {
+    display: grid;
 
- }
- .grid__item {
-   background-color: var(--grid-color);
-   width: auto;
-   min-height: auto;
-   margin: 0;
- }
+    /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    margin: 20px;
+  }
+
+  .grid__item {
+    background-color: var(--grid-color);
+    width: auto;
+    min-height: auto;
+    margin: 0;
+  }
 }
 
 .page-footer {
@@ -249,15 +258,18 @@ button:focus,
 /* The animation code */
 @keyframes color-change {
   0% {
-   fill: #edc655;
- }
- 50% {
-   fill: #fcffad;
- }
- 100% {
-   fill: #f76414;
- }
+    fill: #edc655;
+  }
+
+  50% {
+    fill: #fcffad;
+  }
+
+  100% {
+    fill: #f76414;
+  }
 }
+
 /* The element to apply the animation to: Long version */
 .sun {
   animation-duration: 4s;
@@ -267,14 +279,16 @@ button:focus,
   animation-timing-function: linear;
 }
 
-@@keyframes cloud-move {
+@keyframes cloud-move {
   from {
     transform: translate(0, 50px);
   }
+
   to {
     transform: translate(200px, 50px);
   }
 }
+
 /* Short version */
 .cloud-front {
   animation: 30s cloud-move infinite alternate linear;
@@ -284,6 +298,7 @@ button:focus,
   from {
     transform: translate(446px, 48px);
   }
+
   to {
     transform: translate(100px, 48px);
   }
@@ -299,19 +314,23 @@ button:focus,
     grid-template-columns: 1fr;
   }
 }
-@media all and (min-width: 500px) and (max-width: 750px){
+
+@media all and (min-width: 500px) and (max-width: 750px) {
   .grid {
     grid-template-columns: 1fr 1fr;
   }
 }
+
 @media all and (max-width: 750px) {
   .grid {
     grid-gap: 10px;
   }
+
   .grid__item:last-child {
     grid-column: auto / auto;
     grid-row: auto / auto;
   }
+
   h1 {
     font-size: 22px;
   }
